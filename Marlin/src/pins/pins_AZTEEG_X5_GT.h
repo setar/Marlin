@@ -42,11 +42,11 @@
 // Limit Switches
 //
 
-#define X_MIN_PIN          P1_24
+#define X_MIN_PIN          P1_24 //pwm
 #define X_MAX_PIN          P1_27
 #define Y_MIN_PIN          P1_25
 #define Y_MAX_PIN          P1_28
-#define Z_MIN_PIN          P1_26
+#define Z_MIN_PIN          P1_26 //pwm
 #define Z_MAX_PIN          P1_29
 
 
@@ -102,10 +102,11 @@
 //
 
 #define HEATER_BED_PIN     P2_07
-#define HEATER_0_PIN       P2_04
-#define HEATER_1_PIN       P2_05
+#define HEATER_0_PIN       P2_04 //pwm
+
+#define HEATER_1_PIN       -1 //P2_05 // вместо второго нагревателя подключены FAN //pwm
 #ifndef FAN_PIN
-  #define FAN_PIN          P0_26
+  #define FAN_PIN          P2_05 //P0_26
 #endif
 #define FAN1_PIN           P1_22
 
@@ -122,14 +123,16 @@
   #define BTN_EN2          P3_26
   #define BTN_ENC          P2_11
 
-  #define SD_DETECT_PIN    P1_18
-  #define SDSS             P1_21
+  #define SD_DETECT_PIN    P1_18 //pwm
+  #define SDSS             P1_21 //pwm
+    #define KILL_PIN          -1
 
   #define STAT_LED_RED_PIN P1_19
-  #define STAT_LED_BLUE_PIN P1_20
+  #define STAT_LED_BLUE_PIN P0_27 //P1_20 // pwm
 #endif
 
 //
 // Servo
 //
-#define SERVO0_PIN         P1_23
+#define SERVO0_PIN         P1_23 // штатный разъём servo для bltouch
+#define SERVO1_PIN         P1_20 // сигнал управления с Zmin - серва переключения экструдера
