@@ -42,7 +42,7 @@
 
 // Check the integrity of data offsets.
 // Can be disabled for production build.
-//#define DEBUG_EEPROM_READWRITE
+#define DEBUG_EEPROM_READWRITE
 
 #include "configuration_store.h"
 
@@ -678,7 +678,7 @@ void MarlinSettings::postprocess() {
     // LCD Preheat settings
     //
     {
-      _FIELD_TEST(lcd_preheat_hotend_temp);
+      _FIELD_TEST(ui_preheat_hotend_temp);
 
       #if HAS_LCD_MENU
         const int16_t (&ui_preheat_hotend_temp)[2]  = ui.preheat_hotend_temp,
