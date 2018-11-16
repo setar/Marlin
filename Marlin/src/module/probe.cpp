@@ -309,6 +309,8 @@ float zprobe_zoffset; // Initialized by settings.load()
   void bltouch_command(const int angle) {
     MOVE_SERVO(Z_PROBE_SERVO_NR, angle);  // Give the BL-Touch the command and wait
     safe_delay(BLTOUCH_DELAY);
+    MOVE_SERVO(Z_PROBE_SERVO_NR, angle);  // repeat for fix non deployed bltouch
+    safe_delay(BLTOUCH_DELAY);
   }
 
   bool set_bltouch_deployed(const bool deploy) {
